@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #8BC34A;
+}
+
+.hexagon {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1px;
+}
+
+img {
+    position: fixed;
+    top: 300px;
+    left: 300px;
+}
+
+.hoge {
+    background: #8BC34A;
+}
