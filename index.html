@@ -1,24 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="./style.css"/>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./bower_components/material-design-iconic-font/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" href="./style.css"/>
 </head>
 <body>
 
 <div id="vis"></div>
 
 <div id="info">
-  <div id="message">
-    DroidKaigi
+  <div class="left" id="slideshow">
+    <div>
+      <h1>DroidKaigi</h1>
+    </div>
+    <div>
+      <i class="fa fa-twitter"></i>
+      #droidkaigi
+    </div>
+    <div>
+      <i class="md md-network-wifi"></i>
+      <div id="wifi">
+        SSID: hogehogefugafuga<br>
+        PASS: foobarfoobarfboobar
+      </div>
+    </div>
+    <div>
+      <i class="block">Restroom</i>
+      <img src="./CA13F.png">
+    </div>
+
   </div>
-  <img id="droid" src="./droid.png" alt="DroidKaigi Droid"/>
+  <div class="right">
+    <img src="./droid.png" alt="DroidKaigi Droid"/>
+  </div>
 </div>
 
+<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+<script src="./bower_components/FitText.js/jquery.fittext.js"></script>
 <script src="./bower_components/d3/d3.min.js"></script>
 <script src="./webaudio.js"></script>
 <script>
-    var sample = new LibCodingSoVisualizer();
+  var sample = new LibCodingSoVisualizer();
+
+  function toggleClasses(elem) {
+    elem.toggleClass("show");
+    elem.toggleClass("hide");
+  }
+
+  var $items = $("#slideshow").find("> div");
+  $items.addClass("hide");
+
+  var first = $items.first();
+  toggleClasses(first);
+
+  function nextSlideShow() {
+    var show = $items.filter(".show");
+    toggleClasses(show);
+    var next = show.next();
+
+    if (!next.length) {
+      next = $items.first();
+    }
+    toggleClasses(next);
+  }
+
+  setInterval(nextSlideShow, 5000);
 </script>
 
 </body>

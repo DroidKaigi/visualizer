@@ -16,6 +16,15 @@ div {
     top: 0; left: 0;
 }
 
+i.fa, i.md {
+    display: block;
+    font-size: 2em;
+}
+
+i.block {
+    display: block;
+}
+
 #vis {
     width: 100%;
     height: 100%;
@@ -32,22 +41,71 @@ div {
 
     color: #ffffff;
     font-family: 'Roboto Condensed', sans-serif;
+    text-shadow: 2px 2px 0 #000000;
     font-size: 5em;
 }
 
-#message {
+#info .left {
     position: static;
-
+    flex: 3 0 60%;
     text-align: center;
-    width: 50%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-img#droid {
+#info .left div {
+    position: static;
+    text-align: center;
+    width: 100%;
+}
+
+#info .left h1 {
+    font-size: 80px;
+}
+
+#info .left img {
+    width: 100%;
+}
+
+#wifi {
+    font-size: 40px;
+    white-space: nowrap;
+}
+
+#info .right {
+    position: static;
+    flex: 2 0 40%;
+    text-align: center;
+}
+
+#info .right img {
     display: block;
 
     max-width: 616px;
     max-height: 840px;
 
-    width: 50%;
-    margin: 50px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* jQuery */
+.hide {
+    display: none;
+}
+
+@-webkit-keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.show {
+    -webkit-animation-name: fadein;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-timing-function: ease-out;
 }
