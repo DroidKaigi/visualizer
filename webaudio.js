@@ -31,21 +31,24 @@ function LibCodingSoVisualizer() {
 
     input.connect(analyser);
 
-    // fftSize: 高速フーリエ変換値(2乗値が帰る)
-    //console.log(analyser.fftSize);
-
+    var domain = [0,1000];
 
     var color = d3.scale.linear()
-      .domain([0, 20000])
+      .domain(domain)
       .range(["#FFFFFF", "#0000FF"])
       .interpolate(d3.interpolateLab);
 
     var opacity = d3.scale.linear()
-      .domain([0, 20000])
+      .domain(domain)
       .range([0.0, 1.0])
       .interpolate(d3.interpolateNumber);
 
-    var svg = d3.select("body").append("svg")
+    var heightScale = d3.scale.linear()
+      .domain(domain)
+      .range([0, this.constant.HEIGHT])
+      .interpolate(d3.interpolateNumber);
+
+    var svg = d3.select("#vis").append("svg")
       .attr("width", this.constant.WIDTH)
       .attr("height", this.constant.HEIGHT);
 
@@ -57,6 +60,7 @@ function LibCodingSoVisualizer() {
     this.color = color;
     this.rect = rect;
     this.opacity = opacity;
+    this.heightScale = heightScale;
 
     window.requestAnimationFrame(this.visualize.bind(this));
   };
@@ -66,48 +70,45 @@ function LibCodingSoVisualizer() {
   this.timeArray = [];
 
   this.visualize = function () {
-    var LINE_NUM = 16;
+    var LINE_NUM = 128;
 
-    var color = this.color;
-    var opacity = this.opacity;
+    //var color = this.color;
+    //var opacity = this.opacity;
+    var heightScale = this.heightScale;
+
     var times = new Uint8Array(this.analyser.frequencyBinCount);
     // this.analyser.getByteTimeDomainData(times);
     this.analyser.getByteFrequencyData(times);
 
     // UInt8Array -> JavaScript array
     this.timeArray = [];
-    for (var i = 0; i < times.length; i++) {
-      var idx = parseInt(i / (times.length / LINE_NUM));
+    var length = parseInt(times.length * 2 / 3);
+    for (var i = 0; i < length; i++) {
+      var idx = parseInt(i / (length / LINE_NUM));
       if (typeof(this.timeArray[idx]) === 'undefined') {
         this.timeArray[idx] = 0;
       }
       this.timeArray[idx] += parseInt(times[i]);
-      // this.timeArray.push(times[i]);
     }
 
     var width = this.constant.WIDTH / LINE_NUM;
     var height = this.constant.HEIGHT;
 
     var rect = this.rect.selectAll('rect').data(this.timeArray);
-
     rect.exit().remove();
-
     rect.enter().append('rect');
 
     this.rect.selectAll('rect')
       .attr('x', function (d, i) {
         return width * i
       })
-      .attr('y', 0)
+      .attr('y', function(d){
+        return (height - heightScale(d)) / 2;
+      })
       .attr('width', width)
-      .attr('height', height)
-      .style('fill', "#A0E156")
-      .style('opacity', function(d){ return opacity(d) });
-
-    //this.numa
-    //  .style("-webkit-transform", "scale(" + this.timeArray[0] / 15000 + ")")
-//      .style("-webkit-transform", "rotateZ(" + this.timeArray[1] + "deg)")
-//    ;
+      .attr('height', heightScale)
+      .style('fill', "#4a6926")
+    ;
 
     window.requestAnimationFrame(this.visualize.bind(this));
   };
@@ -120,7 +121,5 @@ function LibCodingSoVisualizer() {
     );
   };
   this.getMicInput();
-
-  this.canvas = document.getElementById('vis');
 }
 
