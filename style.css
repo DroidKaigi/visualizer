@@ -66,10 +66,11 @@ i.block {
 }
 
 #info .left img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 300px;
 }
 
-#wifi {
+div.left > div > div {
     font-size: 40px;
     white-space: nowrap;
 }
@@ -80,6 +81,7 @@ i.block {
     text-align: center;
 }
 
+/* DroidKaigi Droid-kun Logo */
 #info .right img {
     display: block;
 

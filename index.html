@@ -30,6 +30,13 @@
       <i class="block">Restroom</i>
       <img src="./CA13F.png">
     </div>
+    <div data-duration="10000">
+      <i class="block">Survay</i>
+      <img src="http://chart.googleapis.com/chart?cht=qr&chs=300x300&choe=UTF-8&chld=H&chl=http://goo.gl/CFuT7w"><br>
+      <div>
+        http://goo.gl/CFuT7w
+      </div>
+    </div>
 
   </div>
   <div class="right">
@@ -64,9 +71,10 @@
       next = $items.first();
     }
     toggleClasses(next);
-  }
 
-  setInterval(nextSlideShow, 5000);
+    setTimeout(nextSlideShow, next.data("duration") || 5000)
+  }
+  nextSlideShow();
 </script>
 
 </body>
