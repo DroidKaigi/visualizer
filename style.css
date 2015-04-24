@@ -73,12 +73,17 @@ i.block {
 div.left > div > div {
     font-size: 40px;
     white-space: nowrap;
+    letter-spacing: 0.1em;
 }
 
 #info .right {
     position: static;
     flex: 2 0 40%;
     text-align: center;
+}
+
+.underline {
+    text-decoration: underline;
 }
 
 /* DroidKaigi Droid-kun Logo */
