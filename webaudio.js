@@ -107,7 +107,7 @@ function LibCodingSoVisualizer() {
       })
       .attr('width', width)
       .attr('height', heightScale)
-      .style('fill', "#4a6926")
+      .style('fill', "#01b5c8") // バーの色を変えたいときはここ
     ;
 
     window.requestAnimationFrame(this.visualize.bind(this));
