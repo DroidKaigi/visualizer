@@ -16,10 +16,10 @@ div {
     top: 0; left: 0;
 }
 
-i.fa, i.md {
-    display: block;
-    font-size: 2em;
-}
+/*i.fa, i.md {*/
+/*display: block;*/
+/*font-size: 2em;*/
+/*}*/
 
 i.block {
     display: block;
@@ -62,12 +62,38 @@ i.block {
 }
 
 #info .left h1 {
-    font-size: 80px;
+    font-size: 90px;
+}
+
+#info .left h2 {
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+#info .left p {
+    font-size: 50px;
+    line-height: 60px;
+    margin-bottom: 10px;
+
+    text-shadow: 1px 1px 0 #000000;
+}
+p.big {
+    font-size: 60px !important;
+    line-height: 70px !important;
+}
+
+.no-shadow {
+    text-shadow: none;
+}
+
+#watch-your-step img {
+    max-width: 100% !important;
+    max-height: 700px !important;
 }
 
 #info .left img {
     max-width: 100%;
-    max-height: 300px;
+    max-height: 400px;
 }
 
 div.left > div > div {
@@ -90,8 +116,8 @@ div.left > div > div {
 #info .right img {
     display: block;
 
-    max-width: 616px;
-    max-height: 840px;
+    max-width: 700px;
+    max-height: 700px;
 
     width: 100%;
     margin: 0 auto;
