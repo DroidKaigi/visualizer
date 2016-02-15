@@ -2,8 +2,12 @@
 <html>
 <head>
   <meta charset="UTF-8"/>
+
+  <title>DroidKaigi</title>
+
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./bower_components/material-design-iconic-font/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
   <link rel="stylesheet" href="./style.css"/>
 </head>
 <body>
@@ -12,41 +16,73 @@
 
 <div id="info">
   <div class="left" id="slideshow">
+
     <div>
-      <h1>DroidKaigi</h1>
+      <h1>DroidKaigi 2016</h1>
     </div>
+
+    <div id="watch-your-step">
+      <img src="./titech-watch-your-step.png">
+    </div>
+
     <div>
-      <i class="fa fa-twitter"></i>
-      #DroidKaigi
-      <div>
+      <h2><i class="zmdi zmdi-accounts-list"></i> Name card</h2>
+      <p>Please wear name card during on event.</p>
+      <p>名札がイベント参加の証です。<br>常に着用してください。</p>
+    </div>
+
+    <div>
+      <h2><i class="fa fa-twitter no-shadow"></i> #DroidKaigi</h2>
+      <p class="big">
         RoomA: #DroidKaigiA<br>
-        RoomB: #DroidKaigiB
-      </div>
+        RoomB: #DroidKaigiB<br>
+        RoomC: #DroidKaigiC<br>
+        RoomD: #DroidKaigiD<br>
+      </p>
     </div>
-    <div>
-      <i class="md md-network-wifi"></i>
 
-      <div id="wifi">
-        SSID: <ruby>LILO<rt>Alphabet</rt></ruby><ruby><span class="underline">505643</span><rt>Numeric</rt></ruby><br>
-        PASS: kurayamijump
-      </div>
-    </div>
     <div>
-      <i class="block">Restroom</i>
-      <img src="./CA13F.png">
+      <h2><i class="zmdi zmdi-wifi-off"></i></h2>
+      <p>Official Wi-Fi is not available.</p>
     </div>
-    <div data-duration="10000">
-      <i class="block">Survey</i>
-      <img src="http://chart.googleapis.com/chart?cht=qr&chs=300x300&choe=UTF-8&chld=H&chl=http://goo.gl/CFuT7w"><br>
 
-      <div>
-        http://goo.gl/CFuT7w
-      </div>
+    <div>
+      <h2>Restrooms</h2>
+      <img src="./titech-restrooms.png">
+    </div>
+
+    <div>
+      <i class="ion-no-smoking"></i> Smoking Area
+      <img src="./titech-smoking-area.png">
+      <p>No smoking except at specified area.</p>
+      <p>喫煙は所定の場所でお願いします！</p>
+    </div>
+
+    <div>
+      <i class="zmdi zmdi-cake"></i> & <i class="zmdi zmdi-drink"></i>
+
+      <p>Foods and Water are available<br>at South Bldg. 2 & 4</p>
+      <p>南館にてお菓子やお水を<br>ご用意しております！</p>
+    </div>
+
+    <div data-duration="15000">
+      <h2><i class="zmdi zmdi-android"></i> Official App</h2>
+      <img src="http://chart.googleapis.com/chart?cht=qr&chs=300x300&choe=UTF-8&chld=H&chl=https://goo.gl/2Ndgsy"><br>
+      <p><i class="zmdi zmdi-case-play"></i> DroidKaigi</p>
+      <p></p>
+    </div>
+
+
+    <div data-duration="15000">
+      <h2><i class="zmdi zmdi-comment-edit"></i> Survey</h2>
+      <img src="http://chart.googleapis.com/chart?cht=qr&chs=300x300&choe=UTF-8&chld=H&chl=https://goo.gl/yp8wfR">
+      <img src="http://chart.googleapis.com/chart?cht=qr&chs=300x300&choe=UTF-8&chld=H&chl=https://goo.gl/fG5OW4">
+      <p>[JA]goo.gl/yp8wfR&nbsp;&nbsp;&nbsp;[EN]goo.gl/fG5OW4</p>
     </div>
 
   </div>
   <div class="right">
-    <img src="./droid.png" alt="DroidKaigi Droid"/>
+    <img src="./droid2016.png" alt="DroidKaigi Droid"/>
   </div>
 </div>
 
@@ -78,9 +114,11 @@
     }
     toggleClasses(next);
 
-    setTimeout(nextSlideShow, next.data("duration") || 5000)
+    setTimeout(nextSlideShow, next.data("duration") || 10000)
   }
   nextSlideShow();
+
+  $("div.right img").on("click", nextSlideShow);
 </script>
 
 </body>
