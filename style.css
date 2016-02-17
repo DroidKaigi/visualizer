@@ -96,6 +96,17 @@ p.big {
     max-height: 400px;
 }
 
+img.qrcode {
+    max-height: none !important;
+    width: 500px;
+    height: 500px;
+}
+img.restroom {
+    max-height: none !important;
+    width: 50%;
+    height: 50%;
+}
+
 div.left > div > div {
     font-size: 40px;
     white-space: nowrap;
