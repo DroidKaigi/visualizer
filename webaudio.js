@@ -18,20 +18,20 @@ function LibCodingSoVisualizer() {
 
   this.onStream = function (stream) {
     var input = context.createMediaStreamSource(stream);
-    var filter = context.createBiquadFilter();
+    // var filter = context.createBiquadFilter();
     var analyser = context.createAnalyser();
 
     this.analyser = analyser;
-    this.filter = filter;
+    // this.filter = filter;
 
-    this.setFilter(filter);
+    // this.setFilter(filter);
 
     // input.connect(filter);
     // filter.connect(analyser);
 
     input.connect(analyser);
 
-    var domain = [0,1000];
+    var domain = [0, 255];
 
     var color = d3.scale.linear()
       .domain(domain)
@@ -82,13 +82,13 @@ function LibCodingSoVisualizer() {
 
     // UInt8Array -> JavaScript array
     this.timeArray = [];
-    var length = parseInt(times.length * 2 / 3);
+    var length = parseInt(times.length);
     for (var i = 0; i < length; i++) {
       var idx = parseInt(i / (length / LINE_NUM));
       if (typeof(this.timeArray[idx]) === 'undefined') {
         this.timeArray[idx] = 0;
       }
-      this.timeArray[idx] += parseInt(times[i]);
+      this.timeArray[idx] += times[i] / (length / LINE_NUM);
     }
 
     var width = this.constant.WIDTH / LINE_NUM;
