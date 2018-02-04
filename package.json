@@ -1,0 +1,47 @@
+{
+  "name": "visualizer",
+  "version": "2018.1.0",
+  "description": "DroidKaigi visualizer",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node live-server.js",
+    "build": "npm run build:js && npm run build:css",
+    "build:js": "webpack",
+    "build:css": "node-sass --output-style compressed css/index.scss > gh-pages/css.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DroidKaigi/visualizer.git"
+  },
+  "author": "DroidKaigi Comittee",
+  "license": "Unlicense",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/DroidKaigi/visualizer/issues"
+  },
+  "homepage": "https://github.com/DroidKaigi/visualizer#readme",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.9",
+    "d3": "^4.13.0",
+    "jquery": "^3.3.1",
+    "live-server": "^1.2.0",
+    "node-sass": "^4.7.2",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^11.0.0",
+    "postcss-loader": "^2.1.0",
+    "postcss-scss": "^1.0.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-sizeme": "^2.3.6",
+    "reset-css": "^2.2.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.1",
+    "sugarss": "^1.0.1",
+    "webpack": "^3.10.0"
+  }
+}

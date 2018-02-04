@@ -1,0 +1,54 @@
+@import "reset-css/reset.css";
+@import "mixins";
+@import "variables";
+@import "visualizer";
+@import "slideshow";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: $letterbox;
+
+  font-family: "Noto Sans Japanese", serif;
+}
+
+.container {
+  position: relative;
+  background: $md-yellow-700;
+  width: 1440px;
+  height: 100%;
+  margin: 0 auto; // for centering
+}
+
+.header-decoration {
+  @include fullscreen;
+
+  img {
+    position: absolute;
+    top: -750px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+    animation: spin 30s linear infinite backwards;
+  }
+}
+
+.footer-decoration {
+  @include fullscreen;
+
+  img {
+    position: absolute;
+    bottom: -800px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+    animation: spin 30s linear infinite;
+  }
+}

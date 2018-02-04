@@ -1,5 +1,7 @@
 /.idea
 /bower_components/*
+/node_modules/
+/gh-pages/
 
 # 以下は使うので残す
 !/bower_components/material-design-iconic-font
