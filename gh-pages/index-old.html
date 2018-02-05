@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+
+  <title>DroidKaigi</title>
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<div id="container">
+  <div id="vis"></div>
+  <div id="info">
+    <div class="left" id="slideshow">
+
+      <div>
+        <img src="../logo2017.svg">
+      </div>
+
+      <div>
+        <h2><i class="zmdi zmdi-wifi-alt"></i> Wi-Fi for Day 1</h2>
+        <p class="big">SSID: Droid-Sansan</p>
+        <p class="big">Key: tanetane</p>
+      </div>
+
+      <!--
+      <div>
+        <h2><i class="zmdi zmdi-wifi-alt"></i> Wi-Fi for Day 2</h2>
+        <p class="big">SSID: Droid-RecruitLifeStyle</p>
+        <p class="big">Key: 26-Services</p>
+      </div>
+      -->
+
+      <div>
+        <h2>Restrooms & Smoking Rooms</h2>
+        <img src="../floormap.svg" class="restroom">
+      </div>
+
+      <div>
+        <h2><i class="fa fa-twitter no-shadow"></i> #DroidKaigi</h2>
+        <p>
+          Room 1: #DroidKaigi1<br>
+          Room 2: #DroidKaigi2<br>
+          Room 3: #DroidKaigi3<br>
+          Room 4: #DroidKaigi4<br>
+          Room 5: #DroidKaigi5<br>
+          Room 6: #DroidKaigi6<br>
+        </p>
+      </div>
+
+      <div>
+        <h2><i class="zmdi zmdi-accounts-list"></i> Conference Badge</h2>
+        <p>Always wear your badge in the venue.</p>
+        <p>会場内はDroidKaigiの名札を<br>常に着用してください。</p>
+      </div>
+
+      <div>
+        <h2><i class="zmdi zmdi-volume-off"></i> Silent Mode On</h2>
+        <p>Avoid making loud sounds during the sessions.</p>
+        <p>会場内での音の出る行為はご遠慮ください。</p>
+      </div>
+
+      <div>
+        <h2><i class="zmdi zmdi-flash-off"></i> No Flash and Shutter Sound</h2>
+        <p>Avoid flash and shutter sound when you taking pictures during the sessions.</p>
+        <p>セッション中の写真撮影はフラッシュやシャッター音はご遠慮ください。</p>
+      </div>
+
+      <div>
+        <h2>
+        <span class="zmdi-hc-stack"><i
+            class="zmdi zmdi-local-dining zmdi-hc-stack-1x"></i><i
+            class="zmdi zmdi-minus-circle-outline zmdi-hc-stack-2x"></i>
+        </span>
+        </h2>
+        <p>No eating and drinking allowed in the lobby and corridors.</p>
+        <p>ロビーと廊下でのご飲食はご遠慮ください。</p>
+      </div>
+
+      <div>
+        <h2><i class="zmdi zmdi-videocam"></i> Session Recordings</h2>
+        <p>All session recordings will be available online later.</p>
+        <p>全セッション動画を<br>後日公開予定です。</p>
+      </div>
+
+      <div data-duration="15000">
+        <h2><i class="zmdi zmdi-android"></i> Official App</h2>
+        <img src="//chart.googleapis.com/chart?cht=qr&amp;chs=350x350&amp;choe=UTF-8&amp;chld=H&amp;chl=https://goo.gl/UaSaaw" class="qrcode"><br>
+        <p class="big"><i class="zmdi zmdi-case-play"></i> goo.gl/UaSaaw</p>
+        <p>QR code is also available on the pamphlet.</p>
+      </div>
+
+      <div data-duration="15000">
+        <h2><i class="zmdi zmdi-comment-edit"></i> Questionnaire</h2>
+        <p>アンケート</p>
+        <img src="//chart.googleapis.com/chart?cht=qr&amp;chs=350x350&amp;choe=UTF-8&amp;chld=H&amp;chl=https://goo.gl/cgu1HS" class="qrcode">
+        <p class="big">goo.gl/cgu1HS</p>
+        <p>QR code is also available on the pamphlet.</p>
+      </div>
+
+      <div>
+        <h2><i class="zmdi zmdi-android-alt"></i> DroidKaigi Stickers!</h2>
+        <p class="big">11:00am - 5:00pm @ Reception</p>
+        <p>Limited stock. First-come, first-served.</p>
+        <p>受付でステッカーを配布しています。</p>
+        <p>なくなり次第終了です！</p>
+      </div>
+
+
+    </div>
+    <div class="right">
+      <img src="../droidkaigi2017.png" alt="DroidKaigi 2017"/>
+    </div>
+  </div>
+</div>
+
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/FitText.js/jquery.fittext.js"></script>
+<script src="../bower_components/d3/d3.min.js"></script>
+<script src="../webaudio.js"></script>
+<script>
+  var sample = new LibCodingSoVisualizer();
+  var lastIntervalId;
+
+  function toggleClasses(elem) {
+    elem.toggleClass("show");
+    elem.toggleClass("hide");
+  }
+
+  var $items = $("#slideshow").find("> div");
+  $items.addClass("hide");
+
+  var last = $items.last();
+  toggleClasses(last);
+
+  function nextSlideShow() {
+    if (lastIntervalId)
+      clearTimeout(lastIntervalId);
+
+    var show = $items.filter(".show");
+    toggleClasses(show);
+    var next = show.next();
+
+    if (!next.length) {
+      next = $items.first();
+    }
+    toggleClasses(next);
+
+    lastIntervalId = setTimeout(nextSlideShow, next.data("duration") || 10000)
+  }
+  nextSlideShow();
+
+  $("div.right img").on("click", nextSlideShow);
+</script>
+
+</body>
+</html>

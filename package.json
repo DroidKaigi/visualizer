@@ -37,6 +37,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-sizeme": "^2.3.6",
+    "react-transition-group": "^2.2.1",
     "reset-css": "^2.2.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.1",

@@ -3,11 +3,10 @@ import Visualizer from "./visualizer"
 import SlideShow from "./slideshow";
 
 export default class App extends React.Component {
-
   render() {
     return (
       <div>
-        <Visualizer style={{width: "500px", height: "500px"}}/>
+        <Visualizer/>
         <SlideShow items={slideshowItems}/>
         <div className="header-decoration">
           <img src="./droid-twohead.png"/>
@@ -18,7 +17,6 @@ export default class App extends React.Component {
       </div>
     )
   }
-
 }
 
 const slideshowItems = [
@@ -28,15 +26,16 @@ const slideshowItems = [
     d: <div>
       <em>SSID: Droid-picapp</em>
       <em>PASS: hellopicapp</em>
-      <span style={{marginTop: "100px", fontSize: "45pt"}}>
+      <div style={{marginTop: "50px", fontSize: "45pt"}}>
         Unavailable at Hall, sorry<br/>
-        ホールにWi-Fiありません。ごめんなさい！
-      </span>
+        ホールにWi-Fiありません<br/>ごめんなさい！
+      </div>
     </div>
   },
   {
-    t: "#DroidKaigi",
-    t_i: "fa-twitter no-shadow",
+    t: <span># <img src="./droidkaigi-hash.png"
+                    style={{height: "70px", position: "relative", top: "12px"}}/></span>,
+    t_i: "zmdi-twitter",
     d: <table className="hashtag">
       <tbody>
       <tr>
@@ -62,31 +61,63 @@ const slideshowItems = [
     t_i: <img src="./badge.jpg" style={{width: "300px"}}/>,
     d: <div>
       <p>Always wear your badge in the venue.</p>
-      <p>会場内では名札を<br />常に着用してください</p>
+      <p style={{marginTop: "40px"}}>
+        会場内では名札を<br/>常に着用してください
+      </p>
     </div>
   },
   {
-    // t: "No Flash and Shutter Sound",
     t_i: "zmdi-flash-off",
     d: <div>
-      <p>Avoid flash and shutter sound when you taking pictures during the sessions.</p>
-      <p>セッション中の写真撮影はフラッシュやシャッター音はご遠慮ください。</p>
+      <p>
+        Avoid flash and shutter sound when you taking pictures during the sessions.
+      </p>
+      <p style={{marginTop: "20pt"}}>
+        セッション中の写真撮影では<br/>フラッシュやシャッター音は<br/>お控えください
+      </p>
     </div>
   },
   {
-    // t: "",
     t_i: "zmdi-local-dining",
     d: <div>
-      <p>No eating and drinking allowed in the lobby and corridors.</p>
-      <p>ロビーと廊下での飲食はご遠慮ください</p>
+      <p>
+        No eating and drinking allowed in the lobby and corridors.
+      </p>
+      <p style={{marginTop: "20pt"}}>
+        ロビーと廊下での飲食は<br/>ご遠慮ください<br/>(ルームの中ならOK!)
+      </p>
     </div>
   },
   {
-    t: "Session Recordings",
-    t_i: <i className="zmdi zmdi-videocam"/>,
+    t: "Exhibition Room",
+    t_i: "zmdi-drink",
     d: <div>
-      <p>All session recordings will be available online later.</p>
-      <p>全セッション動画を<br/>後日公開予定です。</p>
+      <p>
+        We provide free coffee, drinks, and Snacks! Also check out Sponsors booth!
+      </p>
+      <p style={{marginTop: "10pt"}}>
+        飲み物、珈琲、お菓子あります<br/>
+        スポンサーブースにもお立ち寄りを
+      </p>
+    </div>
+  },
+  {
+    t_i: "zmdi-videocam",
+    d: <div>
+      <p>
+        All session recordings will be available online later.
+      </p>
+      <p style={{marginTop: "20pt"}}>
+        全セッション動画を<br/>後日公開予定です。
+      </p>
+    </div>
+  },
+  {
+    t: "Canceled sessions",
+    t_i: "zmdi-alert-circle-o",
+    d: <div>
+      [Day 2 11:20-11:50]<br/>
+      "Androidで始めるOpenGL ES"
     </div>
   }
 ];
