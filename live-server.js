@@ -1,11 +1,10 @@
-/**
- * `npm run build-relase` などでpublicフォルダに書き出した成果物をローカルで確認するためのスクリプト。
- * 事前に `npm run build-relase` を実行してから `npm run start` でこのスクリプトを実行すること。
- */
+const WebpackDevServer = require("webpack-dev-server");
+const webpack = require("webpack");
+const config = require("./webpack.config.js");
+const compiler = webpack(config);
 
-var liveServer = require("live-server");
-
-liveServer.start({
-  wait: 1000,
-  root: "./gh-pages"
+let server = new WebpackDevServer(compiler, {
+  publicPath: config.output.publicPath,
+  hot: true
 });
+server.listen(8000);

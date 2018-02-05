@@ -5,11 +5,11 @@ module.exports = {
   context: path.resolve(__dirname, 'gh-pages'),
   entry: `${__dirname}/src/index.jsx`,
   output: {
-    // filename: `${__dirname}/gh-pages/app.js`
-    filename: `./gh-pages/app.js`
+    path: `${__dirname}/gh-pages`,
+    filename: "app.js"
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
@@ -20,16 +20,15 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: [
+        use: [
           "style-loader",
-          "css-loader",
-          // {
-          //   loader: 'css-loader',
-          //   options: {
-          //     url: false,
-          //     sourceMap: true
-          //   }
-          // },
+          {
+            loader: 'css-loader',
+            options: {
+              url: false,
+              sourceMap: true
+            }
+          },
           'postcss-loader',
           'sass-loader'
         ]
@@ -37,6 +36,12 @@ module.exports = {
     ]
   },
   devtool: '#source-map',
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  devServer: {
+    contentBase: 'gh-pages'
+  },
   /*plugins: [
     new webpack.DefinePlugin({
       'process.env': {
@@ -46,6 +51,6 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin()
   ],*/
   resolve: {
-    extensions: ['.jsx', '.js']
+    extensions: ['.jsx', '.js', ".json"]
   }
 };
