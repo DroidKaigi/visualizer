@@ -27,7 +27,7 @@ const slideshowItems = [
       <em>SSID: Droid-picapp</em>
       <em>PASS: hellopicapp</em>
       <div style={{marginTop: "50px", fontSize: "45pt"}}>
-        Unavailable at Hall, sorry<br/>
+        Wi-Fi available on the 5th floor only<br/>
         ホールにWi-Fiありません<br/>ごめんなさい！
       </div>
     </div>
@@ -60,7 +60,7 @@ const slideshowItems = [
   {
     t_i: <img src="./badge.jpg" style={{width: "300px"}}/>,
     d: <div>
-      <p>Always wear your badge in the venue.</p>
+      <p>Please wear your badge inside the venue</p>
       <p style={{marginTop: "40px"}}>
         会場内では名札を<br/>常に着用してください
       </p>
@@ -70,7 +70,7 @@ const slideshowItems = [
     t_i: "zmdi-flash-off",
     d: <div>
       <p>
-        Avoid flash and shutter sound when you taking pictures during the sessions.
+        Avoid using flash and shutter sound when taking pictures during the session
       </p>
       <p style={{marginTop: "20pt"}}>
         セッション中の写真撮影では<br/>フラッシュやシャッター音は<br/>お控えください
@@ -81,7 +81,7 @@ const slideshowItems = [
     t_i: "zmdi-local-dining",
     d: <div>
       <p>
-        No eating and drinking allowed in the lobby and corridors.
+        No eating or drinking allowed in the lobby or corridors
       </p>
       <p style={{marginTop: "20pt"}}>
         ロビーと廊下での飲食は<br/>ご遠慮ください<br/>(ルームの中ならOK!)
@@ -93,7 +93,7 @@ const slideshowItems = [
     t_i: "zmdi-drink",
     d: <div>
       <p>
-        We provide free coffee, drinks, and Snacks! Also check out Sponsors booth!
+        Free coffee, drinks and snacks are available! Also check out Sponsor booths!
       </p>
       <p style={{marginTop: "10pt"}}>
         飲み物、珈琲、お菓子あります<br/>
@@ -105,7 +105,7 @@ const slideshowItems = [
     t_i: "zmdi-videocam",
     d: <div>
       <p>
-        All session recordings will be available online later.
+        Session recordings will be available online later.
       </p>
       <p style={{marginTop: "20pt"}}>
         全セッション動画を<br/>後日公開予定です。
