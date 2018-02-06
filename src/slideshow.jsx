@@ -1,7 +1,7 @@
 import React from "react";
 import {Transition} from "react-transition-group";
 
-const INTERVAL = 3 * 1000;
+const INTERVAL = 10 * 1000;
 const ANIMATION_TIMEOUT = 1000;
 
 export default class SlideShow extends React.Component {
