@@ -34,8 +34,18 @@
 
   h2 {
     width: 400px;
+    height: 400px;
     text-align: center;
     font-size: 222pt;
+    line-height: 400pt;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      display:block;
+    }
   }
   article {
     width: 900px;
