@@ -24,9 +24,8 @@ class Visualizer extends React.Component {
 
   componentDidMount() {
     this.aContext = new window.AudioContext();
-    navigator.webkitGetUserMedia(
-      {audio: true},
-      (stream) => {
+    navigator.mediaDevices.getUserMedia({audio: true})
+      .then((stream) => {
         let input = this.aContext.createMediaStreamSource(stream),
           analyser = this.aContext.createAnalyser();
 
@@ -35,11 +34,10 @@ class Visualizer extends React.Component {
 
         this.createVisualizer();
         this.startLoop()
-      },
-      (error) => {
+      })
+      .catch((error) => {
         console.error('Failed to initialize webkitGetUserMedia', error);
-      }
-    )
+      });
   }
 
   componentDidUpdate() {
