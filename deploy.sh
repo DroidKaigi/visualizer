@@ -3,6 +3,14 @@
 set -xeu
 
 intlVC="oc"
+exportDir=gh-pages/${intlVC}
+
+set +e
+rm -rf gh-pages
+mkdir -p ./gh-pages
+set -e
+
+cp -R ./public ./${exportDir}
 
 # chdir
 cd ./gh-pages
@@ -12,10 +20,20 @@ set +e
 rm ./app.js.map
 set -e
 
-# copy all to android internal codename
-mkdir $intlVC
-mv * $intlVC
 git add -f .
+if [ -z "`git -C "$1" status -s .`" ]
+then
+  log No updates found.
+else
+  (
+    set -xeu
+    cd "$1"
+
+    git add --all .
+    git -c user.email="info@droidkaigi.jp" -c user.name="CircleCI" commit -m "$2"
+    git push origin master:master
+  )
+fi
 
 treeObjId=$(git write-tree --prefix=gh-pages)
 git reset -- .
@@ -25,6 +43,8 @@ commitId=$(git commit-tree -p gh-pages -m "autodeploy" $treeObjId)
 
 # update ref gh-pages branch
 git update-ref refs/heads/gh-pages $commitId
+
+git push origin gh-pages
 
 # revert chdir
 cd -
