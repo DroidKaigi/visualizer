@@ -2,15 +2,29 @@
 
 set -xeu
 
+intlVC="oc"
+
+# chdir
+cd ./gh-pages
+
+# remove sourcemap cuz production is not needed
 set +e
-rm ./gh-pages/app.js.map
+rm ./app.js.map
 set -e
 
-git add -f ./gh-pages
+# copy all to android internal codename
+mkdir $intlVC
+mv * $intlVC
+git add -f .
 
 treeObjId=$(git write-tree --prefix=gh-pages)
-git reset -- ./gh-pages
+git reset -- .
 
+# create commit
 commitId=$(git commit-tree -p gh-pages -m "autodeploy" $treeObjId)
 
+# update ref gh-pages branch
 git update-ref refs/heads/gh-pages $commitId
+
+# revert chdir
+cd -
