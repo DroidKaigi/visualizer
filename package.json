@@ -5,9 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --hot",
-    "build": "npm run build:js && npm run build:css",
-    "build:js": "webpack",
-    "build:css": "node-sass --output-style compressed css/index.scss > gh-pages/css.css"
+    "build": "webpack",
+    "build-release": "NODE_ENV=production npm run build"
   },
   "repository": {
     "type": "git",
