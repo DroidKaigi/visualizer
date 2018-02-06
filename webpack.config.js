@@ -4,13 +4,13 @@ const webpack = require('webpack');
 const PROD = JSON.stringify(process.env.NODE_ENV === "production");
 
 module.exports = {
-  context: path.resolve(__dirname, 'gh-pages'),
+  context: path.resolve(__dirname, 'public'),
   entry: [
     'react-hot-loader/patch', // これを追加
     `${__dirname}/src/index.jsx`
   ],
   output: {
-    path: `${__dirname}/gh-pages`,
+    path: `${__dirname}/public`,
     filename: "app.js"
   },
   module: {
@@ -46,7 +46,7 @@ module.exports = {
   },
   devtool: '#source-map',
   devServer: {
-    contentBase: 'gh-pages',
+    contentBase: 'public',
     inline: true,
     hot: true
   },

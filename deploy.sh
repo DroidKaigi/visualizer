@@ -2,15 +2,49 @@
 
 set -xeu
 
+intlVC="oc"
+exportDir=gh-pages/${intlVC}
+
 set +e
-rm ./gh-pages/app.js.map
+rm -rf gh-pages
+mkdir -p ./gh-pages
 set -e
 
-git add -f ./gh-pages
+cp -R ./public ./${exportDir}
+
+# chdir
+cd ./gh-pages
+
+# remove sourcemap cuz production is not needed
+set +e
+rm ./app.js.map
+set -e
+
+git add -f .
+if [ -z "`git -C "$1" status -s .`" ]
+then
+  log No updates found.
+else
+  (
+    set -xeu
+    cd "$1"
+
+    git add --all .
+    git -c user.email="info@droidkaigi.jp" -c user.name="CircleCI" commit -m "$2"
+    git push origin master:master
+  )
+fi
 
 treeObjId=$(git write-tree --prefix=gh-pages)
-git reset -- ./gh-pages
+git reset -- .
 
+# create commit
 commitId=$(git commit-tree -p gh-pages -m "autodeploy" $treeObjId)
 
+# update ref gh-pages branch
 git update-ref refs/heads/gh-pages $commitId
+
+git push origin gh-pages
+
+# revert chdir
+cd -

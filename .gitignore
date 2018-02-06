@@ -1,5 +1,7 @@
-/.idea
-/node_modules/
+.idea
+node_modules/
 
-/gh-pages/app.js
-/gh-pages/app.js.map
+public/app.js
+public/app.js.map
+
+gh-pages/

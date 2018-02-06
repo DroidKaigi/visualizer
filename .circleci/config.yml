@@ -1,0 +1,19 @@
+version: 2
+workflows:
+  version: 2
+  on-commit:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.9.4
+    steps:
+      - checkout
+      - run: npm install --no-save
+      - run: npm run build-release
+      - run: ./deploy.sh
