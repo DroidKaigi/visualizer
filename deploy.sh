@@ -2,6 +2,10 @@
 
 set -xeu
 
+function log() {
+    echo "$@" 1>&2
+}
+
 intlVC="oc"
 exportDir=gh-pages/${intlVC}
 
@@ -21,18 +25,10 @@ rm ./app.js.map
 set -e
 
 git add -f .
-if [ -z "`git -C "$1" status -s .`" ]
+if [ -z "`git -C "." status -s .`" ]
 then
   log No updates found.
-else
-  (
-    set -xeu
-    cd "$1"
-
-    git add --all .
-    git -c user.email="info@droidkaigi.jp" -c user.name="CircleCI" commit -m "$2"
-    git push origin master:master
-  )
+  exit 0
 fi
 
 treeObjId=$(git write-tree --prefix=gh-pages)
