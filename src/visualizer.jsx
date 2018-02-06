@@ -11,6 +11,7 @@ const
 
   // バーの色
   BAR_COLOR = '#f9a825'
+
 ;
 
 class Visualizer extends React.Component {
@@ -63,6 +64,9 @@ class Visualizer extends React.Component {
         .range([0, height])
         .interpolate(d3.interpolateNumber),
       svg = d3.select(node);
+
+    // purge all if not empty
+    svg.select('g').remove();
 
     svg.attr("width", width)
       .attr("height", height);
