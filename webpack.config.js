@@ -1,9 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const PROD = JSON.stringify(process.env.NODE_ENV === "production");
+
 module.exports = {
   context: path.resolve(__dirname, 'gh-pages'),
-  entry: `${__dirname}/src/index.jsx`,
+  entry: [
+    'react-hot-loader/patch', // これを追加
+    `${__dirname}/src/index.jsx`
+  ],
   output: {
     path: `${__dirname}/gh-pages`,
     filename: "app.js"
@@ -13,10 +18,15 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['env', 'react']
-        }
+        use: [
+          "react-hot-loader/webpack",
+          {
+            loader: "babel-loader",
+            query: {
+              presets: ['env', 'react']
+            }
+          }
+        ]
       },
       {
         test: /\.scss$/,
@@ -35,20 +45,25 @@ module.exports = {
     ]
   },
   devtool: '#source-map',
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
   devServer: {
-    contentBase: 'gh-pages'
+    contentBase: 'gh-pages',
+    inline: true,
+    hot: true
   },
-  /*plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
+  plugins: PROD ? [
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: 'production',
+      DEBUG: false
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        screw_ie8: true
       }
     }),
-    new webpack.optimize.UglifyJsPlugin()
-  ],*/
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.optimize.AggressiveMergingPlugin()
+  ] : [],
   resolve: {
     extensions: ['.jsx', '.js', ".json"]
   }
