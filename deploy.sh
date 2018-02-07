@@ -10,6 +10,9 @@ intlVC="oc"
 exportDir=gh-pages/${intlVC}
 
 # before to commit
+git config --global user.email "noreply@droidkaigi.jp" > /dev/null 2>&1
+git config --global user.name "CircleCI" > /dev/null 2>&1
+
 git fetch
 git checkout gh-pages
 
