@@ -119,5 +119,14 @@ const slideshowItems = [
       [Day 2 11:20-11:50]<br/>
       "Androidで始めるOpenGL ES"
     </div>
+  },
+  {
+    t: "Room changed",
+    t_i: "zmdi-swap",
+    d: <div>
+      [Day 1 12:50-13:40]<br/>
+      "今から始めるAndroidアプリ開発"<br />
+      Room 7 → <strong>Room 2</strong>
+    </div>
   }
 ];
