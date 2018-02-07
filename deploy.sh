@@ -9,6 +9,10 @@ function log() {
 intlVC="oc"
 exportDir=gh-pages/${intlVC}
 
+# before to commit
+git fetch
+git checkout gh-pages origin/gh-pages
+
 set +e
 rm -rf gh-pages
 mkdir -p ./gh-pages
@@ -33,10 +37,6 @@ fi
 
 treeObjId=$(git write-tree --prefix=gh-pages)
 git reset -- .
-
-# before to commit
-git fetch
-git checkout gh-pages origin/gh-pages
 
 # create commit
 commitId=$(git commit-tree -p gh-pages -m "autodeploy" $treeObjId)
