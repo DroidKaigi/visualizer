@@ -11,7 +11,7 @@ exportDir=gh-pages/${intlVC}
 
 # before to commit
 git fetch
-git checkout gh-pages origin/gh-pages
+git checkout gh-pages
 
 set +e
 rm -rf gh-pages
