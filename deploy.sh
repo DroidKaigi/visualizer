@@ -34,6 +34,10 @@ fi
 treeObjId=$(git write-tree --prefix=gh-pages)
 git reset -- .
 
+# before to commit
+git fetch
+git checkout gh-pages origin/gh-pages
+
 # create commit
 commitId=$(git commit-tree -p gh-pages -m "autodeploy" $treeObjId)
 
