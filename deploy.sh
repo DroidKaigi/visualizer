@@ -9,8 +9,6 @@ function log() {
 intlVC="oc"
 exportDir=gh-pages/${intlVC}
 
-git fetch
-
 set +e
 rm -rf gh-pages
 mkdir -p ./gh-pages
