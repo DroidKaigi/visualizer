@@ -17,8 +17,8 @@ jobs:
       - run: npm install --no-save
       - run: npm run build-release
       - run: |
-        git config --global user.email "noreply@droidkaigi.jp" > /dev/null 2>&1
-        git config --global user.name "CircleCI" > /dev/null 2>&1
+          git config --global user.email "noreply@droidkaigi.jp" > /dev/null 2>&1
+          git config --global user.name "CircleCI" > /dev/null 2>&1
       - add_ssh_keys:
           fingerprints:
             - "2f:9e:c4:56:49:d8:cf:aa:d1:1c:50:ce:d8:3e:96:97"
