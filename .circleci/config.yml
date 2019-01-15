@@ -1,0 +1,6 @@
+version: 2
+jobs:
+  build:
+    branches:
+      only:
+        - "nothing_to_do_on_gh-pages"
