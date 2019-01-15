@@ -1,6 +1,19 @@
 version: 2
+workflows:
+  version: 2
+  on-commit:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
 jobs:
   build:
-    branches:
-      only:
-        - "nothing_to_do_on_gh-pages"
+    filters:
+      branches:
+        only:
+          - "nothing_to_do_on_gh-pages"
+    docker:
+      - image: circleci/node:10
+    steps:
+      - run: ":"
