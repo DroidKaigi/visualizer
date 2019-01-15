@@ -44,5 +44,6 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "2f:9e:c4:56:49:d8:cf:aa:d1:1c:50:ce:d8:3e:96:97"
+      - run: mkdir -p ~/.ssh; ssh-keyscan github.com >> ~/.ssh/known_hosts
       - run: git fetch origin gh-pages:gh-pages
       - run: ./deploy.sh
