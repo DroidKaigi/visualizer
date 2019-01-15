@@ -3,7 +3,8 @@ workflows:
   version: 2
   on-commit:
     jobs:
-      - build:
+      - build
+      - deploy:
           filters:
             branches:
               only: master
@@ -11,10 +12,29 @@ workflows:
 jobs:
   build:
     docker:
-      - image: circleci/node:8.9.4
+      - image: circleci/node:10
     steps:
       - checkout
-      - run: npm install --no-save
+      - restore_cache:
+          keys:
+            - npm-cache-{{ .Environment.CACHE_KEY }}-{{ checksum "package-lock.json" }}
+            - npm-cache-{{ .Environment.CACHE_KEY }}-
+      - run: npm ci
+      - save_cache:
+          key: npm-cache-{{ .Environment.CACHE_KEY }}-{{ checksum "package-lock.json" }}
+          paths:
+            - ~/.npm
+      - run: npm run build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+  deploy:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - attach_workspace:
+          at: .
       - run: npm run build-release
       - run: |
           git config --global user.email "noreply@droidkaigi.jp" > /dev/null 2>&1
