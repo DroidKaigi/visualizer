@@ -19,7 +19,8 @@
     "url": "https://github.com/DroidKaigi/visualizer/issues"
   },
   "homepage": "https://github.com/DroidKaigi/visualizer#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-polyfill": "^6.26.0",
@@ -39,9 +40,7 @@
     "react-transition-group": "^2.5.3",
     "reset-css": "^2.2.1",
     "sass-loader": "^6.0.7",
-    "style-loader": "^0.20.3"
-  },
-  "devDependencies": {
+    "style-loader": "^0.20.3",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14"
