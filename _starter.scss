@@ -1,0 +1,22 @@
+.starter {
+	@include fullscreen;
+  width: 100%;
+  height: 100%;
+	background: #E44D3B;
+	z-index: 1;
+}
+
+.start_button {
+	position: absolute;
+	height: 100px;
+	width: 100px;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	z-index: inherit;
+	text-align: center;
+	color: white;
+	font-style: bold;
+}

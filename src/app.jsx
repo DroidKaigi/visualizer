@@ -1,12 +1,12 @@
 import React from "react";
-import Visualizer from "./visualizer"
+import Starter from "./starter";
 import SlideShow from "./slideshow";
 
 export default class App extends React.Component {
   render() {
     return (
       <div>
-        <Visualizer/>
+        <Starter />
         <SlideShow items={slideshowItems}/>
         <div className="header-decoration">
           <img src="./droid-twohead.png"/>
