@@ -120,6 +120,14 @@ const slideshowItems = [
     </div>
   },
   {
+    t: "Canceled sessions",
+    t_i: "zmdi-alert-circle-o",
+    d: <div>
+      [Day 1 15:40-16:10]<br/>
+      "ちゃんとつくる Google Assistant アプリ"
+    </div>
+  },
+  {
     t: "Room changed",
     t_i: "zmdi-swap",
     d: <div>
