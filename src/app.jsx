@@ -99,6 +99,30 @@ const slideshowItems = [
     </div>
   },
   {
+    t:"Priority Seats",
+    t_i: "zmdi-face",
+    d: <div>
+      <p>
+        Priority seats are available in session room.
+      </p>
+      <p>
+        セッションルームには優先席がございます。
+      </p>
+    </div>
+  },
+  {
+    t:"Priority Seats",
+    t_i: "zmdi-face",
+    d: <div>
+      <p>
+        Anyone can use the priority seats, but in some cases it may give away. Thank you.
+      </p>
+      <p>
+        優先席は誰でも利用可能ですが、必要とされる方に席をお譲り頂く場合がございます。
+      </p>
+    </div>
+  },
+  {
     t_i: "zmdi-local-dining",
     d: <div>
       <p>
