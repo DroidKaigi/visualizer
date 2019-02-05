@@ -53,3 +53,33 @@ html, body {
     animation: spin 30s linear infinite;
   }
 }
+
+.left-decoration {
+  @include fullscreen;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: -2250px;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+    animation: spin 30s linear infinite backwards;
+  }
+}
+
+.right-decoration {
+  @include fullscreen;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: -2300px;
+    bottom: 0;
+    margin: auto;
+
+    animation: spin 30s linear infinite backwards;
+  }
+}
