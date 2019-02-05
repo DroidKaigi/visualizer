@@ -70,7 +70,7 @@ const slideshowItems = [
     t_i: "zmdi-flash-off",
     d: <div>
       <p>
-        Avoid using flash and shutter sound when taking pictures during the session
+        Avoid using flash and shutter sounds when taking photos during sessions
       </p>
       <p style={{marginTop: "20pt"}}>
         セッション中の写真撮影では<br/>フラッシュやシャッター音は<br/>お控えください
