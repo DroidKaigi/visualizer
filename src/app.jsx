@@ -24,8 +24,8 @@ const slideshowItems = [
     // t: "Wi-Fi",
     t_i: "zmdi-wifi-alt",
     d: <div>
-      <em>SSID: Droid-picapp</em>
-      <em>PASS: hellopicapp</em>
+      <em>SSID: DroidKaigi2019</em>
+      <em>PASS: thankyou-iridge</em>
       <div style={{marginTop: "50px", fontSize: "45pt"}}>
         Wi-Fi available on the 5th floor only<br/>
         ホールにWi-Fiありません<br/>ごめんなさい！
@@ -39,20 +39,19 @@ const slideshowItems = [
     d: <table className="hashtag">
       <tbody>
       <tr>
-        <td>#droidkaigi_hall</td>
-        <td>#droidkaigi_room4</td>
+        <td>#hallA</td>
+        <td>#hallB</td>
+        <td>#room1</td>
       </tr>
       <tr>
-        <td>#droidkaigi_room1</td>
-        <td>#droidkaigi_room5</td>
+        <td>#room2</td>
+        <td>#room3</td>
+        <td>#room4</td>
       </tr>
       <tr>
-        <td>#droidkaigi_room2</td>
-        <td>#droidkaigi_room6</td>
-      </tr>
-      <tr>
-        <td>#droidkaigi_room3</td>
-        <td>#droidkaigi_room7</td>
+        <td>#room5</td>
+        <td>#room6</td>
+        <td>#room7</td>
       </tr>
       </tbody>
     </table>
@@ -116,17 +115,25 @@ const slideshowItems = [
     t: "Canceled sessions",
     t_i: "zmdi-alert-circle-o",
     d: <div>
-      [Day 2 11:20-11:50]<br/>
-      "Androidで始めるOpenGL ES"
+      [Day 1 11:20-11:50]<br/>
+      "What is Navigation Architecture Component and Tips"
+    </div>
+  },
+  {
+    t: "Canceled sessions",
+    t_i: "zmdi-alert-circle-o",
+    d: <div>
+      [Day 1 15:40-16:10]<br/>
+      "ちゃんとつくる Google Assistant アプリ"
     </div>
   },
   {
     t: "Room changed",
     t_i: "zmdi-swap",
     d: <div>
-      [Day 1 12:50-13:40]<br/>
-      "今から始めるAndroidアプリ開発"<br />
-      Room 7 → <strong>Room 2</strong>
+      [Day 1 15:40-16:10]<br/>
+      "Androidエンジニアが抑えておくべきUnicode Emojiの知識"<br/>
+      Room 4 → <strong>Room 1</strong>
     </div>
   }
 ];
