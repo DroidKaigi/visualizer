@@ -24,8 +24,8 @@ const slideshowItems = [
     // t: "Wi-Fi",
     t_i: "zmdi-wifi-alt",
     d: <div>
-      <em>SSID: Droid-picapp</em>
-      <em>PASS: hellopicapp</em>
+      <em>SSID: DroidKaigi2019</em>
+      <em>PASS: thankyou-iridge</em>
       <div style={{marginTop: "50px", fontSize: "45pt"}}>
         Wi-Fi available on the 5th floor only<br/>
         ホールにWi-Fiありません<br/>ごめんなさい！
