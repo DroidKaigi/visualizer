@@ -131,9 +131,9 @@ const slideshowItems = [
     t: "Room changed",
     t_i: "zmdi-swap",
     d: <div>
-      [Day 1 12:50-13:40]<br/>
-      "今から始めるAndroidアプリ開発"<br />
-      Room 7 → <strong>Room 2</strong>
+      [Day 1 15:40-16:10]<br/>
+      "Androidエンジニアが抑えておくべきUnicode Emojiの知識"<br/>
+      Room 4 → <strong>Room 1</strong>
     </div>
   }
 ];
