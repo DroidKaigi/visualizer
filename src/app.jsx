@@ -39,20 +39,19 @@ const slideshowItems = [
     d: <table className="hashtag">
       <tbody>
       <tr>
-        <td>#droidkaigi_hall</td>
-        <td>#droidkaigi_room4</td>
+        <td>#hallA</td>
+        <td>#hallB</td>
+        <td>#room1</td>
       </tr>
       <tr>
-        <td>#droidkaigi_room1</td>
-        <td>#droidkaigi_room5</td>
+        <td>#room2</td>
+        <td>#room3</td>
+        <td>#room4</td>
       </tr>
       <tr>
-        <td>#droidkaigi_room2</td>
-        <td>#droidkaigi_room6</td>
-      </tr>
-      <tr>
-        <td>#droidkaigi_room3</td>
-        <td>#droidkaigi_room7</td>
+        <td>#room5</td>
+        <td>#room6</td>
+        <td>#room7</td>
       </tr>
       </tbody>
     </table>
