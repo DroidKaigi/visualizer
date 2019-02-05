@@ -115,8 +115,8 @@ const slideshowItems = [
     t: "Canceled sessions",
     t_i: "zmdi-alert-circle-o",
     d: <div>
-      [Day 2 11:20-11:50]<br/>
-      "Androidで始めるOpenGL ES"
+      [Day 1 11:20-11:50]<br/>
+      "What is Navigation Architecture Component and Tips"
     </div>
   },
   {
