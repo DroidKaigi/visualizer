@@ -81,7 +81,7 @@ const slideshowItems = [
     t_i: "zmdi-translate",
     d: <div>
       <p>
-        Simultaneous interpretation for sessions is available in room 3.
+        Sessions with simultaneous interpretation will be in Room 3.
       </p>
       <p>
         Room 3ではセッションの同時通訳が実施されています！
@@ -92,7 +92,7 @@ const slideshowItems = [
     t_i: "zmdi-block",
     d: <div>
       <p>
-        No bring out the receiver from room 3.
+        Do not take translation receivers outside of the session room.
       </p>
       <p>
         ルーム外への同時通訳レシーバーの持ち出しはご遠慮ください
