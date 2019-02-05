@@ -1,0 +1,9 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+      - run: ":"
+    branches:
+      only:
+        - nothing/to/do
