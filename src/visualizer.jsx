@@ -105,7 +105,7 @@ class Visualizer extends React.Component {
         return width * i
       })
       .attr('y', function (d) {
-        return (height - heightScale(d)) / 2;
+        return (height - heightScale(d));
       })
       .attr('width', Math.ceil(width) - BAR_MARGIN)
       .attr('height', heightScale)
