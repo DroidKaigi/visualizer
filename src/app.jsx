@@ -78,6 +78,28 @@ const slideshowItems = [
     </div>
   },
   {
+    t_i: "zmdi-translate",
+    d: <div>
+      <p>
+        Simultaneous interpretation for sessions is available in room 3.
+      </p>
+      <p>
+        Room 3ではセッションの同時通訳が実施されています！
+      </p>
+    </div>
+  },
+  {
+    t_i: "zmdi-block",
+    d: <div>
+      <p>
+        No bring out the receiver from room 3.
+      </p>
+      <p>
+        ルーム外への同時通訳レシーバーの持ち出しはご遠慮ください
+      </p>
+    </div>
+  },
+  {
     t_i: "zmdi-local-dining",
     d: <div>
       <p>
