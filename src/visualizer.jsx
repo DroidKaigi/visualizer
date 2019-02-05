@@ -10,7 +10,7 @@ const
   BAR_MARGIN = 1,
 
   // バーの色
-  BAR_COLOR = '#f9a825'
+  BAR_COLOR = '#b13c2f'
 
 ;
 

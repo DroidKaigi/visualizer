@@ -13,15 +13,15 @@
 html, body {
   width: 100%;
   height: 100%;
-  background: $letterbox;
+  background: $letterbox-white;
 
   font-family: "Noto Sans Japanese", serif;
 }
 
 .container {
   position: relative;
-  background: $md-yellow-700;
-  width: 1440px;
+  background: $droidkaigi-2019-theme;
+  width: 100%;
   height: 100%;
   margin: 0 auto; // for centering
 }
