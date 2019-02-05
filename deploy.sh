@@ -24,6 +24,20 @@ set +e
 rm ./app.js.map
 set -e
 
+# add configuration for CircleCI to do nothing in gh-pages branch.
+mkdir -p .circleci
+cat << EOS > .circleci/config.yml
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+      - run: ":"
+    branches:
+      only:
+        - nothing/to/do
+EOS
+
 git add -f .
 if [ -z "`git -C "." status -s .`" ]
 then
