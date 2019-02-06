@@ -59,9 +59,9 @@ class Slide extends React.Component {
     // icon
     let icon = this.slide.t_i;
     if (typeof icon === "string") {
-      if (icon.match(/fa/)) {
+      if (icon.match(/fa-/)) {
         icon = <i className={`fa ${icon}`}/>
-      } else if (icon.match(/zmdi/)) {
+      } else if (icon.match(/zmdi-/)) {
         icon = <i className={`zmdi ${icon}`}/>
       } else {
         icon = ""
