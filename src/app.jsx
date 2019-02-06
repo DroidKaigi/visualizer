@@ -115,10 +115,10 @@ const slideshowItems = [
     t_i: "zmdi-face",
     d: <div>
       <p>
-        Anyone can use the priority seats, but in some cases it may give away. Thank you.
+        If priority seats are empty please use them. Please vacate them if necessary.
       </p>
       <p>
-        優先席は誰でも利用可能ですが、必要とされる方に席をお譲り頂く場合がございます。
+        優先席は空いていればどなたでもご利用いただけます。譲り合ってご利用ください。
       </p>
     </div>
   },
