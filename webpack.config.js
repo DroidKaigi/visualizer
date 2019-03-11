@@ -10,7 +10,7 @@ module.exports = (_, argv) => {
       // Required to support async/await
       '@babel/polyfill',
       'react-hot-loader/patch',
-      `${__dirname}/src/index.jsx`
+      `${__dirname}/src/index.tsx`
     ],
     output: {
       path: `${__dirname}/public`,
@@ -19,14 +19,25 @@ module.exports = (_, argv) => {
     module: {
       rules: [
         {
-          test: /\.jsx?$/,
+          test: /\.(j|t)sx?$/,
           exclude: /node_modules/,
           use: [
             "react-hot-loader/webpack",
             {
               loader: "babel-loader",
-              query: {
-                presets: ['@babel/preset-env', '@babel/preset-react']
+              options: {
+                cacheDirectory: true,
+                presets: [
+                  '@babel/preset-env',
+                  '@babel/preset-typescript',
+                  '@babel/preset-react'
+                ],
+                plugins: [
+                  // plugin-proposal-decorators is only needed if you're using experimental decorators in TypeScript
+                  ['@babel/plugin-proposal-decorators', { legacy: true }],
+                  ['@babel/plugin-proposal-class-properties', { loose: true }],
+                  'react-hot-loader/babel',
+                ]
               }
             }
           ]
@@ -62,7 +73,7 @@ module.exports = (_, argv) => {
       new webpack.optimize.AggressiveMergingPlugin()
     ] : [],
     resolve: {
-      extensions: ['.jsx', '.js', ".json"]
+      extensions: ['.jsx', '.js', '.tsx', '.ts', ".json"]
     },
     performance: {
       // 初期ロード時間は重視しないのでバンドルサイズの警告は実質無効化しておく

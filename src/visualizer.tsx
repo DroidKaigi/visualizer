@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import sizeMe from 'react-sizeme'
 import * as d3 from "d3"
 
