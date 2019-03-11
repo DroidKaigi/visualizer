@@ -1,11 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 module.exports = (_, argv) => {
   console.log(`mode: ${argv.mode}`);
   const PROD = argv.mode === "production";
   return {
-    context: path.resolve(__dirname, 'public'),
+    context: path.resolve(__dirname),
     entry: [
       // Required to support async/await
       '@babel/polyfill',
@@ -64,14 +65,19 @@ module.exports = (_, argv) => {
       inline: true,
       hot: true
     },
-    plugins: PROD ? [
-      new webpack.EnvironmentPlugin({
-        NODE_ENV: 'production',
-        DEBUG: false
-      }),
-      new webpack.optimize.OccurrenceOrderPlugin(),
-      new webpack.optimize.AggressiveMergingPlugin()
-    ] : [],
+    plugins:
+      PROD ? [
+        new ForkTsCheckerWebpackPlugin(),
+        new webpack.EnvironmentPlugin({
+          NODE_ENV: 'production',
+          DEBUG: false
+        }),
+        new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.optimize.AggressiveMergingPlugin()
+      ]
+      /*DEV*/ : [
+          new ForkTsCheckerWebpackPlugin(),
+        ],
     resolve: {
       extensions: ['.jsx', '.js', '.tsx', '.ts', ".json"]
     },

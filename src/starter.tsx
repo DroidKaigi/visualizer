@@ -17,7 +17,7 @@ export default class Starter extends React.Component {
   componentWillUnmount() {
   }
 
-  onClick(e) {
+  onClick(e: React.MouseEvent) {
     var starter = document.getElementsByClassName("starter")[0] as HTMLDivElement;
     var startButton = document.getElementsByClassName("start_button")[0] as HTMLButtonElement;
     starter.style.zIndex = "0";

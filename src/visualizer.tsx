@@ -12,9 +12,17 @@ const
   // バーの色
   BAR_COLOR = '#b13c2f'
 
-;
+  ;
 
-class Visualizer extends React.Component {
+class Visualizer extends React.Component<{ size: { width: number; height: number; } }> {
+  aContext: AudioContext;
+  analyser: AnalyserNode;
+  node: SVGSVGElement;
+  rect: d3.Selection<Element, number, Element, number>;
+  heightScale: d3.ScaleLinear<number, number>;
+  sizeWidth: number;
+  sizeHeight: number;
+  loopId: number;
 
   constructor(props) {
     super(props);
@@ -24,8 +32,8 @@ class Visualizer extends React.Component {
   }
 
   componentDidMount() {
-    this.aContext = new window.AudioContext();
-    navigator.mediaDevices.getUserMedia({audio: true})
+    this.aContext = new AudioContext();
+    navigator.mediaDevices.getUserMedia({ audio: true })
       .then((stream) => {
         let input = this.aContext.createMediaStreamSource(stream),
           analyser = this.aContext.createAnalyser();
@@ -57,13 +65,13 @@ class Visualizer extends React.Component {
     const _self = this;
     const node = this.node;
 
-    const {width, height} = this.props.size;
+    const { width, height } = this.props.size;
 
     let heightScale = d3.scaleLinear()
-        .domain([0, 255])
-        .range([0, height])
-        .interpolate(d3.interpolateNumber),
-      svg = d3.select(node);
+      .domain([0, 255])
+      .range([0, height])
+      .interpolate(d3.interpolateNumber),
+      svg = d3.select<Element, number>(node);
 
     // purge all if not empty
     svg.select('g').remove();
@@ -87,7 +95,7 @@ class Visualizer extends React.Component {
     let samplesPerBar = Math.floor(times.length / NUMBER_OF_LINES);
     for (let i = 0; i < times.length; i++) {
       let idx = Math.floor(i / samplesPerBar);
-      if (typeof(timeArray[idx]) === 'undefined') {
+      if (typeof (timeArray[idx]) === 'undefined') {
         timeArray[idx] = 0;
       }
       timeArray[idx] += times[i] / samplesPerBar;
@@ -100,7 +108,7 @@ class Visualizer extends React.Component {
     rect.exit().remove();
     rect.enter().append('rect');
 
-    this.rect.selectAll('rect')
+    this.rect.selectAll<Element, number>('rect')
       .attr('x', function (d, i) {
         return width * i
       })
@@ -133,11 +141,11 @@ class Visualizer extends React.Component {
   render() {
     return (
       <div className='visualizer'>
-        <svg ref={node => this.node = node}/>
+        <svg ref={node => this.node = node} />
       </div>
     )
   }
 
 }
 
-export default sizeMe({monitorHeight: true})(Visualizer)
+export default sizeMe({ monitorHeight: true })(Visualizer)
