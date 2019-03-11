@@ -8,6 +8,10 @@
     "build": "webpack --mode development",
     "build-release": "webpack --mode production"
   },
+  "engines": {
+    "node": ">=10",
+    "npm": ">=6"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DroidKaigi/visualizer.git"
