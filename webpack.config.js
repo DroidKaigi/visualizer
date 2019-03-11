@@ -7,7 +7,9 @@ module.exports = (_, argv) => {
   return {
     context: path.resolve(__dirname, 'public'),
     entry: [
-      'react-hot-loader/patch', // これを追加
+      // Required to support async/await
+      '@babel/polyfill',
+      'react-hot-loader/patch',
       `${__dirname}/src/index.jsx`
     ],
     output: {
@@ -24,7 +26,7 @@ module.exports = (_, argv) => {
             {
               loader: "babel-loader",
               query: {
-                presets: ['env', 'react']
+                presets: ['@babel/preset-env', '@babel/preset-react']
               }
             }
           ]
