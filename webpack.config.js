@@ -1,14 +1,17 @@
 const path = require('path');
 const webpack = require('webpack');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 module.exports = (_, argv) => {
   console.log(`mode: ${argv.mode}`);
   const PROD = argv.mode === "production";
   return {
-    context: path.resolve(__dirname, 'public'),
+    context: path.resolve(__dirname),
     entry: [
-      'react-hot-loader/patch', // これを追加
-      `${__dirname}/src/index.jsx`
+      // Required to support async/await
+      '@babel/polyfill',
+      'react-hot-loader/patch',
+      `${__dirname}/src/index.tsx`
     ],
     output: {
       path: `${__dirname}/public`,
@@ -17,14 +20,22 @@ module.exports = (_, argv) => {
     module: {
       rules: [
         {
-          test: /\.jsx?$/,
+          test: /\.(j|t)sx?$/,
           exclude: /node_modules/,
           use: [
             "react-hot-loader/webpack",
             {
               loader: "babel-loader",
-              query: {
-                presets: ['env', 'react']
+              options: {
+                cacheDirectory: true,
+                presets: [
+                  '@babel/preset-env',
+                  '@babel/preset-typescript',
+                  '@babel/preset-react'
+                ],
+                plugins: [
+                  'react-hot-loader/babel',
+                ]
               }
             }
           ]
@@ -51,16 +62,21 @@ module.exports = (_, argv) => {
       inline: true,
       hot: true
     },
-    plugins: PROD ? [
-      new webpack.EnvironmentPlugin({
-        NODE_ENV: 'production',
-        DEBUG: false
-      }),
-      new webpack.optimize.OccurrenceOrderPlugin(),
-      new webpack.optimize.AggressiveMergingPlugin()
-    ] : [],
+    plugins:
+      PROD ? [
+        new ForkTsCheckerWebpackPlugin(),
+        new webpack.EnvironmentPlugin({
+          NODE_ENV: 'production',
+          DEBUG: false
+        }),
+        new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.optimize.AggressiveMergingPlugin()
+      ]
+      /*DEV*/ : [
+          new ForkTsCheckerWebpackPlugin(),
+        ],
     resolve: {
-      extensions: ['.jsx', '.js', ".json"]
+      extensions: ['.jsx', '.js', '.tsx', '.ts', ".json"]
     },
     performance: {
       // 初期ロード時間は重視しないのでバンドルサイズの警告は実質無効化しておく

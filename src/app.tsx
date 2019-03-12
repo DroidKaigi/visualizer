@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import Starter from "./starter";
 import SlideShow from "./slideshow";
 
@@ -7,7 +7,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Starter />
-        <SlideShow items={slideshowItems}/>
+        <SlideShow items={slideshowItems} />
         <div className="left-decoration">
           <img src="./logo-pie-twohead-colored.png" />
         </div>
@@ -26,42 +26,42 @@ const slideshowItems = [
     d: <div>
       <em>SSID: DroidKaigi2019</em>
       <em>PASS: thankyou-iridge</em>
-      <div style={{marginTop: "50px", fontSize: "45pt"}}>
-        Wi-Fi available on the 5th floor only<br/>
-        ホールにWi-Fiありません<br/>ごめんなさい！
+      <div style={{ marginTop: "50px", fontSize: "45pt" }}>
+        Wi-Fi available on the 5th floor only<br />
+        ホールにWi-Fiありません<br />ごめんなさい！
       </div>
     </div>
   },
   {
     t: <span># <img src="./droidkaigi-hash.png"
-                    style={{height: "70px", position: "relative", top: "12px"}}/></span>,
+      style={{ height: "70px", position: "relative", top: "12px" }} /></span>,
     t_i: "zmdi-twitter",
     d: <table className="hashtag">
       <tbody>
-      <tr>
-        <td>#hallA</td>
-        <td>#hallB</td>
-        <td>#room1</td>
-      </tr>
-      <tr>
-        <td>#room2</td>
-        <td>#room3</td>
-        <td>#room4</td>
-      </tr>
-      <tr>
-        <td>#room5</td>
-        <td>#room6</td>
-        <td>#room7</td>
-      </tr>
+        <tr>
+          <td>#hallA</td>
+          <td>#hallB</td>
+          <td>#room1</td>
+        </tr>
+        <tr>
+          <td>#room2</td>
+          <td>#room3</td>
+          <td>#room4</td>
+        </tr>
+        <tr>
+          <td>#room5</td>
+          <td>#room6</td>
+          <td>#room7</td>
+        </tr>
       </tbody>
     </table>
   },
   {
-    t_i: <img src="./badge.jpg" style={{width: "300px"}}/>,
+    t_i: <img src="./badge.jpg" style={{ width: "300px" }} />,
     d: <div>
       <p>Please wear your badge inside the venue</p>
-      <p style={{marginTop: "40px"}}>
-        会場内では名札を<br/>常に着用してください
+      <p style={{ marginTop: "40px" }}>
+        会場内では名札を<br />常に着用してください
       </p>
     </div>
   },
@@ -71,8 +71,8 @@ const slideshowItems = [
       <p>
         Avoid using flash and shutter sounds when taking photos during sessions
       </p>
-      <p style={{marginTop: "20pt"}}>
-        セッション中の写真撮影では<br/>フラッシュやシャッター音は<br/>お控えください
+      <p style={{ marginTop: "20pt" }}>
+        セッション中の写真撮影では<br />フラッシュやシャッター音は<br />お控えください
       </p>
     </div>
   },
@@ -99,7 +99,7 @@ const slideshowItems = [
     </div>
   },
   {
-    t:"Priority Seats",
+    t: "Priority Seats",
     t_i: "zmdi-face",
     d: <div>
       <p>
@@ -111,7 +111,7 @@ const slideshowItems = [
     </div>
   },
   {
-    t:"Priority Seats",
+    t: "Priority Seats",
     t_i: "zmdi-face",
     d: <div>
       <p>
@@ -128,8 +128,8 @@ const slideshowItems = [
       <p>
         No eating or drinking allowed in the lobby or corridors
       </p>
-      <p style={{marginTop: "20pt"}}>
-        ロビーと廊下での飲食は<br/>ご遠慮ください<br/>(ルームの中ならOK!)
+      <p style={{ marginTop: "20pt" }}>
+        ロビーと廊下での飲食は<br />ご遠慮ください<br />(ルームの中ならOK!)
       </p>
     </div>
   },
@@ -140,8 +140,8 @@ const slideshowItems = [
       <p>
         Free coffee, drinks and snacks are available! Also check out Sponsor booths!
       </p>
-      <p style={{marginTop: "10pt"}}>
-        飲み物、珈琲、お菓子あります<br/>
+      <p style={{ marginTop: "10pt" }}>
+        飲み物、珈琲、お菓子あります<br />
         スポンサーブースにもお立ち寄りを
       </p>
     </div>
@@ -152,8 +152,8 @@ const slideshowItems = [
       <p>
         Session recordings will be available online later.
       </p>
-      <p style={{marginTop: "20pt"}}>
-        全セッション動画を<br/>後日公開予定です。
+      <p style={{ marginTop: "20pt" }}>
+        全セッション動画を<br />後日公開予定です。
       </p>
     </div>
   },
@@ -161,7 +161,7 @@ const slideshowItems = [
     t: "Canceled sessions",
     t_i: "zmdi-alert-circle-o",
     d: <div>
-      [Day 1 11:20-11:50]<br/>
+      [Day 1 11:20-11:50]<br />
       "What is Navigation Architecture Component and Tips"
     </div>
   },
@@ -169,7 +169,7 @@ const slideshowItems = [
     t: "Canceled sessions",
     t_i: "zmdi-alert-circle-o",
     d: <div>
-      [Day 1 15:40-16:10]<br/>
+      [Day 1 15:40-16:10]<br />
       "ちゃんとつくる Google Assistant アプリ"
     </div>
   },
@@ -177,8 +177,8 @@ const slideshowItems = [
     t: "Room changed",
     t_i: "zmdi-swap",
     d: <div>
-      [Day 1 15:40-16:10]<br/>
-      "Androidエンジニアが抑えておくべきUnicode Emojiの知識"<br/>
+      [Day 1 15:40-16:10]<br />
+      "Androidエンジニアが抑えておくべきUnicode Emojiの知識"<br />
       Room 4 → <strong>Room 1</strong>
     </div>
   }

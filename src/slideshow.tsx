@@ -1,10 +1,17 @@
-import React from "react";
-import {Transition} from "react-transition-group";
+import * as React from "react";
+import { Transition } from "react-transition-group";
 
 const INTERVAL = 10 * 1000;
 const ANIMATION_TIMEOUT = 1000;
 
-export default class SlideShow extends React.Component {
+interface SlideShowItem {
+  t?: string | JSX.Element;
+  t_i: string | JSX.Element;
+  d: string | JSX.Element;
+}
+
+export default class SlideShow extends React.Component<{ items: SlideShowItem[] }, { current: number }> {
+  items: SlideShowItem[];
 
   constructor(props) {
     super(props);
@@ -16,7 +23,7 @@ export default class SlideShow extends React.Component {
     this.incrementCurrent = this.incrementCurrent.bind(this);
 
     setInterval(() => {
-      this.setState({current: this.incrementCurrent()})
+      this.setState({ current: this.incrementCurrent() })
     }, INTERVAL)
   }
 
@@ -34,12 +41,12 @@ export default class SlideShow extends React.Component {
     let items = this.items
       .map((item, index) => {
         return <Slide slide={item}
-                      index={index + 1}
-                      currentIndex={this.state.current}
-                      key={index + 1}/>
+          index={index + 1}
+          currentIndex={this.state.current}
+          key={index + 1} />
       });
     items.unshift(<HeadSlide currentIndex={this.state.current}
-                             key={0}/>);
+      key={0} />);
     return (
       <div className='slideshow'>
         {items}
@@ -48,7 +55,8 @@ export default class SlideShow extends React.Component {
   }
 }
 
-class Slide extends React.Component {
+class Slide extends React.Component<{ slide: SlideShowItem, index: number, currentIndex: number }> {
+  slide: SlideShowItem;
 
   constructor(props) {
     super(props);
@@ -60,9 +68,9 @@ class Slide extends React.Component {
     let icon = this.slide.t_i;
     if (typeof icon === "string") {
       if (icon.match(/fa-/)) {
-        icon = <i className={`fa ${icon}`}/>
+        icon = <i className={`fa ${icon}`} />
       } else if (icon.match(/zmdi-/)) {
-        icon = <i className={`zmdi ${icon}`}/>
+        icon = <i className={`zmdi ${icon}`} />
       } else {
         icon = ""
       }
@@ -86,7 +94,7 @@ class Slide extends React.Component {
   }
 }
 
-class HeadSlide extends React.Component {
+class HeadSlide extends React.Component<{ currentIndex: number }> {
   constructor(props) {
     super(props);
   }
@@ -98,8 +106,8 @@ class HeadSlide extends React.Component {
       <Transition in={visible} timeout={ANIMATION_TIMEOUT}>
         {(state) => (
           <div className={`slide ${state}`}>
-            <img src="./logo.png" style={{width: "400px"}}/>
-            <img src="./droidkaigi.png" style={{width: "700px"}}/>
+            <img src="./logo.png" style={{ width: "400px" }} />
+            <img src="./droidkaigi.png" style={{ width: "700px" }} />
           </div>
         )}
       </Transition>
