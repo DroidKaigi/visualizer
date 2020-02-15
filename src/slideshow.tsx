@@ -106,8 +106,7 @@ class HeadSlide extends React.Component<{ currentIndex: number }> {
       <Transition in={visible} timeout={ANIMATION_TIMEOUT}>
         {(state) => (
           <div className={`slide ${state}`}>
-            <img src="./logo.png" style={{ width: "400px" }} />
-            <img src="./droidkaigi.png" style={{ width: "700px" }} />
+            <img src="./logo.png" style={{ width: "1080px" }} />
           </div>
         )}
       </Transition>
