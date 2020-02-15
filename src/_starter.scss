@@ -2,7 +2,7 @@
 	@include fullscreen;
   width: 100%;
   height: 100%;
-	background: #e44d3b;
+	background: $droidkaigi-2020-theme;
 	z-index: 1;
 }
 
@@ -17,6 +17,6 @@
 	margin: auto;
 	z-index: inherit;
 	text-align: center;
-	color: white;
+	color: $droidkaigi-2020-letterbox;
 	font-style: bold;
 }

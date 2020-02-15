@@ -10,7 +10,7 @@ const
   BAR_MARGIN = 1,
 
   // バーの色
-  BAR_COLOR = '#b13c2f'
+  BAR_COLOR = '#ccd4f1'
 
   ;
 
@@ -113,7 +113,7 @@ class Visualizer extends React.Component<{ size: { width: number; height: number
         return width * i
       })
       .attr('y', function (d) {
-        return (height - heightScale(d));
+        return 0;
       })
       .attr('width', Math.ceil(width) - BAR_MARGIN)
       .attr('height', heightScale)

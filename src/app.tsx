@@ -8,12 +8,6 @@ export default class App extends React.Component {
       <div>
         <Starter />
         <SlideShow items={slideshowItems} />
-        <div className="left-decoration">
-          <img src="./logo-pie-twohead-colored.png" />
-        </div>
-        <div className="right-decoration">
-          <img src="./logo-pie-colored.png" />
-        </div>
       </div>
     )
   }

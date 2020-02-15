@@ -5,3 +5,4 @@ public/app.js
 public/app.js.map
 
 gh-pages/
+.DS_Store

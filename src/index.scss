@@ -13,14 +13,14 @@
 html, body {
   width: 100%;
   height: 100%;
-  background: $letterbox-white;
+  background: $droidkaigi-2020-letterbox;
 
   font-family: "Noto Sans Japanese", serif;
 }
 
 .container {
   position: relative;
-  background: $droidkaigi-2019-theme;
+  background: $droidkaigi-2020-theme;
   width: 100%;
   height: 100%;
   margin: 0 auto; // for centering
