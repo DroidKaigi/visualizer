@@ -15,10 +15,9 @@ export default class App extends React.Component {
 
 const slideshowItems = [
   {
-    // t: "Wi-Fi",
     t_i: "zmdi-wifi-alt",
     d: <div>
-      <em>SSID: DroidKaigi2019</em>
+      <em>SSID: DroidKaigi2020</em>
       <em>PASS: thankyou-iridge</em>
       <div style={{ marginTop: "50px", fontSize: "45pt" }}>
         Wi-Fi available on the 5th floor only<br />
@@ -26,7 +25,7 @@ const slideshowItems = [
       </div>
     </div>
   },
-  {
+  { // 誰か助けて
     t: <span># <img src="./droidkaigi-hash.png"
       style={{ height: "70px", position: "relative", top: "12px" }} /></span>,
     t_i: "zmdi-twitter",
@@ -74,10 +73,10 @@ const slideshowItems = [
     t_i: "zmdi-translate",
     d: <div>
       <p>
-        Sessions with simultaneous interpretation will be in Room 3.
+        Sessions with simultaneous interpretation will be in App Bars and Backdrop.
       </p>
       <p>
-        Room 3ではセッションの同時通訳が実施されています！
+        App Bars及びBackdropではセッションの同時通訳が実施されています！
       </p>
     </div>
   },
@@ -89,30 +88,6 @@ const slideshowItems = [
       </p>
       <p>
         ルーム外への同時通訳レシーバーの持ち出しはご遠慮ください
-      </p>
-    </div>
-  },
-  {
-    t: "Priority Seats",
-    t_i: "zmdi-face",
-    d: <div>
-      <p>
-        Priority seats are available in session room.
-      </p>
-      <p>
-        セッションルームには優先席がございます。
-      </p>
-    </div>
-  },
-  {
-    t: "Priority Seats",
-    t_i: "zmdi-face",
-    d: <div>
-      <p>
-        If priority seats are empty please use them. Please vacate them if necessary.
-      </p>
-      <p>
-        優先席は空いていればどなたでもご利用いただけます。譲り合ってご利用ください。
       </p>
     </div>
   },
@@ -151,7 +126,7 @@ const slideshowItems = [
       </p>
     </div>
   },
-  {
+  { // TODO: Canceled sessions sample
     t: "Canceled sessions",
     t_i: "zmdi-alert-circle-o",
     d: <div>
@@ -159,15 +134,7 @@ const slideshowItems = [
       "What is Navigation Architecture Component and Tips"
     </div>
   },
-  {
-    t: "Canceled sessions",
-    t_i: "zmdi-alert-circle-o",
-    d: <div>
-      [Day 1 15:40-16:10]<br />
-      "ちゃんとつくる Google Assistant アプリ"
-    </div>
-  },
-  {
+  { // TODO: Room changed sessions sample
     t: "Room changed",
     t_i: "zmdi-swap",
     d: <div>
