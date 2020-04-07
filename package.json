@@ -37,7 +37,7 @@
     "css-loader": "^3.5.1",
     "cssnano": "^4.1.10",
     "d3": "^4.13.0",
-    "fork-ts-checker-webpack-plugin": "^0.4.15",
+    "fork-ts-checker-webpack-plugin": "^4.1.2",
     "node-sass": "^4.13.1",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
@@ -50,7 +50,7 @@
     "reset-css": "^2.2.1",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
-    "typescript": "^2.9.2",
+    "typescript": "^3.8.3",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
