@@ -1,5 +1,5 @@
 import * as React from "react";
-import sizeMe from 'react-sizeme'
+import { withSize } from 'react-sizeme'
 import * as d3 from "d3"
 
 const
@@ -148,4 +148,4 @@ class Visualizer extends React.Component<{ size: { width: number; height: number
 
 }
 
-export default sizeMe({ monitorHeight: true })(Visualizer)
+export default withSize({ monitorHeight: true })(Visualizer)
