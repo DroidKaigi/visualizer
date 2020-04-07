@@ -25,9 +25,13 @@ const slideshowItems = [
       </div>
     </div>
   },
-  { // 誰か助けて
+  { // FIXME: デザイン変更時に droidkaigi-hash.png を作り直して、cssのfilterを消すこと。
+    //        白背景に白いロゴ画像を置いているのを、仮置きでcssのfilterで無理やり色を揃えている。
     t: <span># <img src="./droidkaigi-hash.png"
-      style={{ height: "70px", position: "relative", top: "12px" }} /></span>,
+      style={{
+        filter: "invert(1) invert(8%) sepia(100%) saturate(8400%) hue-rotate(215deg) brightness(34%)",
+        height: "70px", position: "relative", top: "12px"
+      }} /></span>,
     t_i: "zmdi-twitter",
     d: <table className="hashtag">
       <tbody>
